@@ -67,12 +67,12 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         switch (event.getAction()){
             case MotionEvent.ACTION_DOWN:
             case MotionEvent.ACTION_MOVE:
-                bow.setPullBackPoint((int)event.getX(),Math.max((int)event.getY(),0));
+                bow.setPullBack((int)event.getX());
                 bow.setAngle((int)event.getY());
         }
-        /*if (event.getAction() == MotionEvent.ACTION_UP) {
-            bow.resetPullBackPoint();
-        }*/
+        if (event.getAction() == MotionEvent.ACTION_UP) {
+            bow.setShooting();
+        }
         return true;
         //return super.onTouchEvent(event);
     }
